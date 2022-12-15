@@ -14,10 +14,18 @@ public class Car {
 
     Car (String brand, String model, double engineVolume, String color, int year, String country){
         this.brand = brand;
+        if (brand == null || brand.isBlank()) {
+            this.brand = "default";}
         this.model = model;
         this.engineVolume = engineVolume;
+        if (engineVolume <= 0) {
+            this.engineVolume = 1.5;}
         this.color = color;
+        if (color == null || color.isBlank()) {
+            color = "white";}
         this.year = year;
+        if (year <= 0) {
+            this.year = 2000;}
         this.country = country;
     }
 // Методы Get
