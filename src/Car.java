@@ -13,11 +13,54 @@ public class Car {
     private String registrationNo;
     private final int quantityOfSeats;
     private String rubber;
+    private Key key;
+
+    public static class Key {
+        String nameKey;
+        boolean remoteStart;
+        boolean keylessAccess;
+
+        public Key (String nameKey, boolean remoteStart, boolean keylessAccess) {
+            this.nameKey = nameKey;
+            this.remoteStart = remoteStart;
+            this.keylessAccess = keylessAccess;
+            checkBoolean(remoteStart);
+            checkBoolean(keylessAccess);
+            checkString(nameKey);
+        }
+
+        public void setKeylessAccess(boolean keylessAccess) {
+            this.keylessAccess = keylessAccess;
+        }
+        public void setRemoteStart(boolean remoteStart) {
+            this.remoteStart = remoteStart;
+        }
+
+         public boolean getRemoteStart () {
+             return remoteStart;
+         }
+         public boolean getKeylessAccess () {
+             return keylessAccess;
+         }
+
+        public String getNameKey() {
+            return nameKey;
+        }
+
+        private void checkBoolean (boolean b) {
+            if (b = Boolean.parseBoolean(null)) {
+                throw new IllegalArgumentException("Информация не указана");
+            }
+        }
+
+
+    }
 
 
 
     public Car (String brand, String model, double engineVolume, String color, int year, String country,
-         String transmission, String bodyType, String registrationNo, int quantityOfSeats, String rubber){
+         String transmission, String bodyType, String registrationNo, int quantityOfSeats, String rubber,
+                Key key){
         this.brand = brand;
         if (brand == null || brand.isBlank()) {
             brand = "default";}
@@ -43,6 +86,8 @@ public class Car {
         checkString(registrationNo);
         checkInt(quantityOfSeats);
         checkString(rubber);
+
+        this.key = key;
     }
 
 
@@ -87,13 +132,13 @@ public class Car {
     public String toString() {
         return  "brand: " + brand + "; model: " + model + "; engineVolume: " + engineVolume + "; color: " + color + "; year: " + year + "; country: " + country;}
 
-    private void checkString (String string) {
+    private static void checkString (String string) {
         if (string == null || string.isBlank()){
             throw new IllegalArgumentException("Информация не указана");
         } else {
             string = "default";}
     }
-    private void checkInt (int i) {
+    private static void checkInt (int i) {
         if (i < 2){
             throw new IllegalArgumentException("Информация не указана");
         } else {

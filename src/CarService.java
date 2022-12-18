@@ -14,6 +14,7 @@ public class CarService {
                     "; registration No.: " + cars[i].getRegistrationNo() +
                     "; quantity of seats: " + cars[i].getQuantityOfSeats() +
                     "; rubber: " + addSpaceRubber(cars[i].getRubber(), cars));
+
             System.out.println();
         }
     }
