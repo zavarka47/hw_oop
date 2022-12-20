@@ -1,3 +1,4 @@
+import transport.Bus;
 import transport.Car;
 import transport.CarService;
 
@@ -14,10 +15,18 @@ public class Main {
         cars [3] = new Car("Kia", "Sportage 4th", 2.4, "rad", 2018, "South Korea", "manual", "crossomer", "h018xy", 5, "demi-season", autoKeyWithoutAccess);
         cars [4] = new Car("Hyundai", "Avante", 1.6, "orange", 2016, "South Korea", "auto", "hatchback", "m250ee", 5, "winter", autoKey);
 
+        Bus[] buses = new Bus[3];
+        buses[0] = new Bus("LIAZ", "677", 1963, "Russia", "yellow", 70);
+        buses[1] = new Bus("PAZ", "2305", 1989, "Russia", "white", 110);
+        buses[2] = new Bus("KaVZ", "3976", 1989, "Russia", "grin", 90);
+        for (Bus bus : buses) {
+            System.out.println(bus);
+        }
+
 
         //CarService.printCars(cars);
-        CarService.changRubber(cars);
-        CarService.printCars(cars);
+        //CarService.changRubber(cars);
+        //CarService.printCars(cars);
 
     }
 }
