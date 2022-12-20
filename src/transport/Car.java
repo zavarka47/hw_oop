@@ -1,12 +1,9 @@
-public class Car {
+package transport;
 
-    private final String brand;
-    private final String model;
+public class Car extends transport {
+
+
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
-
 
     private String transmission;
     private final String bodyType;
@@ -61,20 +58,11 @@ public class Car {
     public Car (String brand, String model, double engineVolume, String color, int year, String country,
          String transmission, String bodyType, String registrationNo, int quantityOfSeats, String rubber,
                 Key key){
-        this.brand = brand;
-        if (brand == null || brand.isBlank()) {
-            brand = "default";}
-        this.model = model;
+        super(brand, model, year, color, country);
+
         this.engineVolume = engineVolume;
         if (engineVolume <= 0) {
             this.engineVolume = 1.5;}
-        this.color = color;
-        if (color == null || color.isBlank()) {
-            color = "white";}
-        this.year = year;
-        if (year <= 0) {
-            year = 2000;}
-        this.country = country;
 
         this.transmission = transmission;
         this.bodyType = bodyType;
@@ -94,23 +82,8 @@ public class Car {
 
 
     // Методы Get
-    public String getBrand() {
-        return brand;
-    }
-    public String getModel() {
-        return model;
-    }
     public double getEngineVolume() {
         return engineVolume;
-    }
-    public String getColor() {
-        return color;
-    }
-    public int getYear() {
-        return year;
-    }
-    public String getCountry() {
-        return country;
     }
 
     public String getTransmission() {return transmission;}
@@ -122,7 +95,6 @@ public class Car {
 
 // Методы Set
     public void setEngineVolume(double engineVolume) {this.engineVolume = engineVolume;}
-    public void setColor(String color) {this.color = color;}
     public void setTransmission(String transmission) {this.transmission = transmission;}
     public void setNo(String no) {this.registrationNo = no;}
     public void setRubber(String summerRubber) {this.rubber = summerRubber;}

@@ -1,5 +1,5 @@
-import java.time.LocalDate;
-import java.time.Month;
+import transport.Car;
+import transport.CarService;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class Main {
         cars [4] = new Car("Hyundai", "Avante", 1.6, "orange", 2016, "South Korea", "auto", "hatchback", "m250ee", 5, "winter", autoKey);
 
 
-        CarService.printCars(cars);
+        //CarService.printCars(cars);
         CarService.changRubber(cars);
         CarService.printCars(cars);
 
