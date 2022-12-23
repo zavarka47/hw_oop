@@ -3,79 +3,64 @@ package transport;
 public abstract class transport {
     private String brand;
     private String model;
-    private int year;
-    private final String country;
-    private String color;
-    private int maxSped;
+    private double engineVolume;
 
- transport (String brand, String model, int year, String country, String color) {
+    transport(String brand, String model) {
         this.brand = checkString(brand);
         this.model =  checkString(model);
-        this.year = checkInt(year);
-        this.country = checkString(country);
-        this.color = checkString(color);
-    }
+        this.engineVolume = checkDouble(engineVolume);}
 
-    transport (String brand, String model, int year, String country, String color, int maxSped) {
+
+    transport(String brand, String model, double engineVolume) {
         this.brand = checkString(brand);
         this.model =  checkString(model);
-        this.year = checkInt(year);
-        this.country = checkString(country);
-        this.color = checkString(color);
-        this.maxSped = checkInt(maxSped);
+        this.engineVolume = checkDouble(engineVolume);}
 
-    }
-//Методы Get
+
+    // Методы Get
     public String getBrand() {
         return brand;}
-
     public String getModel() {
         return model;}
-
-    public int getYear() {
-        return year;}
-
-    public String getCountry() {
-        return country;}
-
-    public String getColor() {
-        return color;}
-
-    public int getMaxSped() {
-        return maxSped;}
+    public double getEngineVolume() {
+        return engineVolume;}
 
 
     // Методы Set
-    public void setColor(String color) {
-        this.color = color;
-    if (color == null || color.isBlank()){
-        throw new IllegalArgumentException("Информация указана не верно");}
-    }
-
-    public void setMaxSped(int maxSped) {
-        this.maxSped = maxSped;
-    if (maxSped <= 0){
-        throw new IllegalArgumentException("Информация указана не верно");}
+    public void setEngineVolume(double engineVolume) {
+     this.engineVolume = engineVolume;
     }
 
 
-    //Методы проверок
+    // Методы проверок
     protected static String checkString (String string) {
         if (string == null || string.isBlank() || string.isEmpty()) {
             string = "default";
         }
         return string;
     }
-    protected static int checkInt (int i) {
+    protected static double checkDouble (double i) {
         if (i <= 0 ) {
-            throw new IllegalArgumentException("Не верно указана информация");
+            i = 1.2;
+            //throw new IllegalArgumentException("Не верно указана информация");
         }
         return i;
     }
 
-    //Метод toString
+
+    // Метод toString
     public String toString(){
-        return "brand: " + brand + " model: " + model + " year: " + year + " country: " + country + " color: " + color + " maxSped: " + maxSped;
+        return "brand: " + brand + " model: " + model + "engineVolume: " + engineVolume;
+    }
+
+
+    // Методы движения
+    public static void startMoving() {
+        System.out.println("Move is starting");
+    }
+
+    public static void finishMoving() {
+        System.out.println("Move is finishing");
     }
 
 }
