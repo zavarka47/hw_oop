@@ -1,6 +1,6 @@
-package transport;
+package lesson_4.transport;
 
-public abstract class transport {
+public abstract class transport implements competing {
     private String brand;
     private String model;
     private double engineVolume;
@@ -58,9 +58,19 @@ public abstract class transport {
     public static void startMoving() {
         System.out.println("Move is starting");
     }
-
     public static void finishMoving() {
         System.out.println("Move is finishing");
     }
 
+
+    // Методы implements
+    @Override
+    public void pitStop() {
+    }
+    @Override
+    public void bestTimeCircle() {
+    }
+    @Override
+    public void maxSped() {
+    }
 }

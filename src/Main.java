@@ -1,7 +1,4 @@
-import transport.Bus;
-import transport.Car;
-import transport.TransportService;
-import transport.Truck;
+import lesson_4.transport.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -48,6 +45,14 @@ public class Main {
         TransportService.printBaseInfoTransport(buses);
         System.out.println("Trucks:");
         TransportService.printBaseInfoTransport(trucks);
+
+        System.out.println();
+        Driver <Car> categoryB = new Driver<>("Чернов Артём Артёмович", true, 3);
+        Driver <Bus> categoryC = new Driver<>("Аникин Арсений Николаевич", true, 8);
+        Driver <Truck> categoryD = new Driver<>("Черных Ева Дмитриевна", true, 5);
+        categoryB.driving(cars[0]);
+        categoryC.driving(buses[1]);
+        categoryD.driving(trucks[3]);
 
 
 

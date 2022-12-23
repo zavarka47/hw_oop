@@ -1,6 +1,6 @@
-package transport;
+package lesson_4.transport;
 
-public class Bus extends transport {
+public class Bus extends transport implements competing {
 
     private String country;
     private String color;
@@ -42,4 +42,11 @@ public class Bus extends transport {
         }
         return i;}
 
+    public void pitStop() {
+        System.out.print("Pit-Stop time - 1 min 17 sec; ");}
+    public void bestTimeCircle() {
+        System.out.print("Best time of circle - 8 min 56 sec; ");}
+    @Override
+    public void maxSped() {
+        System.out.print("Max Sped - 121 km/h; ");}
 }

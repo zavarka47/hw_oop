@@ -1,6 +1,6 @@
-package transport;
+package lesson_4.transport;
 
-public class Car extends transport {
+public class Car extends transport implements competing {
     private String color;
     private int year;
     private String country;
@@ -118,9 +118,19 @@ public class Car extends transport {
         }
         return i;
     }
-
     @Override
     public String toString() {
         return  "brand: " + getBrand() + "; model: " + getModel() + "; engineVolume: " + getEngineVolume() + "; color: " + color + "; year: " +  year + "; country: " + country;}
 
+
+    // Методы implements
+    @Override
+    public void pitStop() {
+        System.out.print("Pit-Stop time - 40 sec; ");}
+    @Override
+    public void bestTimeCircle() {
+        System.out.print("Best time of circle - 3 min 12 sec; ");}
+    @Override
+    public void maxSped() {
+        System.out.print("Max Sped - 148 km/h; ");}
 }

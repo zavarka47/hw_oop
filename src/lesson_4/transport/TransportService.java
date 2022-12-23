@@ -1,4 +1,4 @@
-package transport;
+package lesson_4.transport;
 
 import java.time.LocalDate;
 
@@ -6,9 +6,14 @@ public class TransportService {
     // Transport
     public static void printBaseInfoTransport (transport[] transports) {
         for (int i = 0; i < transports.length; i++) {
-            System.out.println("brand: " + addSpaceBrand(transports[i].getBrand(), transports) +
+            System.out.print("brand: " + addSpaceBrand(transports[i].getBrand(), transports) +
                     "; model: " + addSpaceModel(transports[i].getModel(), transports) +
-                    "; engineVolume: " + transports[i].getEngineVolume() );
+                    "; engineVolume: " + transports[i].getEngineVolume()+ "   ");
+            transports[i].pitStop();
+            transports[i].bestTimeCircle();
+            transports[i].maxSped();
+            System.out.println();
+
         }
     }
     private static int maxLengthBrand(transport[] transports) {
