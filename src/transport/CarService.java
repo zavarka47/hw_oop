@@ -3,6 +3,7 @@ package transport;
 import java.time.LocalDate;
 
 public class CarService {
+
     public static void printCars(Car[] cars) {
         for (int i = 0; i < cars.length; i++) {
             System.out.println("brand: " + addSpaceBrand(cars[i].getBrand(), cars) +

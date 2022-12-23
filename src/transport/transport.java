@@ -1,39 +1,29 @@
 package transport;
 
-public class transport {
-    String brand;
-    String model;
-    int year;
-    final String country;
-    String color;
-    int maxSped;
+public abstract class transport {
+    private String brand;
+    private String model;
+    private int year;
+    private final String country;
+    private String color;
+    private int maxSped;
 
-    transport (String brand, String model, int year, String country, String color) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.country = country;
-        this.color = color;
-        checkString(brand);
-        checkString(model);
-        checkString(country);
-        checkString(color);
-        checkInt(year);
+ transport (String brand, String model, int year, String country, String color) {
+        this.brand = checkString(brand);
+        this.model =  checkString(model);
+        this.year = checkInt(year);
+        this.country = checkString(country);
+        this.color = checkString(color);
     }
 
     transport (String brand, String model, int year, String country, String color, int maxSped) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.country = country;
-        this.color = color;
-        this.maxSped = maxSped;
-        checkString(brand);
-        checkString(model);
-        checkString(country);
-        checkString(color);
-        checkInt(year);
-        checkInt(maxSped);
+        this.brand = checkString(brand);
+        this.model =  checkString(model);
+        this.year = checkInt(year);
+        this.country = checkString(country);
+        this.color = checkString(color);
+        this.maxSped = checkInt(maxSped);
+
     }
 //Методы Get
     public String getBrand() {
@@ -70,15 +60,17 @@ public class transport {
 
 
     //Методы проверок
-    private static void checkString (String string) {
+    protected static String checkString (String string) {
         if (string == null || string.isBlank() || string.isEmpty()) {
             string = "default";
         }
+        return string;
     }
-    private static void checkInt (int i) {
+    protected static int checkInt (int i) {
         if (i <= 0 ) {
             throw new IllegalArgumentException("Не верно указана информация");
         }
+        return i;
     }
 
     //Метод toString
@@ -86,5 +78,4 @@ public class transport {
         return "brand: " + brand + " model: " + model + " year: " + year + " country: " + country + " color: " + color + " maxSped: " + maxSped;
     }
 
-    //Класс Car должен наследовать параметры класса Transport.
 }
