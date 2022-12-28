@@ -1,4 +1,4 @@
-package lesson_4.transport;
+package lesson_4.transport.Transport;
 
 public abstract class transport implements competing {
     private String brand;
@@ -73,4 +73,7 @@ public abstract class transport implements competing {
     @Override
     public void maxSped() {
     }
+
+    // Методы для Enum
+    public abstract void printTyp();
 }

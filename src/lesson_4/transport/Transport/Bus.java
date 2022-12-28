@@ -1,4 +1,4 @@
-package lesson_4.transport;
+package lesson_4.transport.Transport;
 
 public class Bus extends transport implements competing {
 
@@ -6,9 +6,12 @@ public class Bus extends transport implements competing {
     private String color;
     private int maxSped;
     private int year;
+    private BusCapacity busCapacity;
 
-    public Bus(String brand, String model, double engineVolume) {
-        super(brand, model, engineVolume);}
+    public Bus(String brand, String model, double engineVolume, BusCapacity busCapacity) {
+        super(brand, model, engineVolume);
+        this.busCapacity = busCapacity;
+    }
 
     public Bus(String brand, String model, int year, String country, String color, int maxSped) {
         super(brand,model);
@@ -17,6 +20,7 @@ public class Bus extends transport implements competing {
         this.color = checkString(color);
         this.maxSped = checkInt(maxSped);
     }
+
 
     //Методы Get
     public String getCountry() {
@@ -27,12 +31,16 @@ public class Bus extends transport implements competing {
         return maxSped;}
     public int getYear() {
         return year;}
+    public BusCapacity getBusCapacity() {
+        return busCapacity;
+    }
 
     // Методы Set
     public void setColor(String color) {
         this.color = color;}
     public void setMaxSped(int maxSped) {
         this.maxSped = maxSped;}
+
 
     // Методы check
     private int checkInt (int i) {
@@ -42,6 +50,8 @@ public class Bus extends transport implements competing {
         }
         return i;}
 
+
+    // implements
     public void pitStop() {
         System.out.print("Pit-Stop time - 1 min 17 sec; ");}
     public void bestTimeCircle() {
@@ -49,4 +59,11 @@ public class Bus extends transport implements competing {
     @Override
     public void maxSped() {
         System.out.print("Max Sped - 121 km/h; ");}
+
+    // Метод для Enum
+
+    @Override
+    public void printTyp() {
+        System.out.println("bus capacity: " + busCapacity);
+    }
 }

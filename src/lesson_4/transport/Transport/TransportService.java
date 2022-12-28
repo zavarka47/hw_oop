@@ -1,4 +1,4 @@
-package lesson_4.transport;
+package lesson_4.transport.Transport;
 
 import java.time.LocalDate;
 
@@ -113,7 +113,7 @@ public class TransportService {
             System.out.println("brand: " + addSpaceBrand(cars[i].getBrand(), cars) +
                     "; model: " + addSpaceModel(cars[i].getModel(), cars) +
                             "transmission: " + addSpaceTransmission(cars[i].getTransmission(), cars) +
-                            "; body type: " + addSpaceBodyType(cars[i].getBodyType(), cars) +
+                            "; body type: " + addSpaceBodyType(cars[i].getBodyType().getBodyType(), cars) +
                             "; registration No.: " + cars[i].getRegistrationNo() +
                             "; quantity of seats: " + cars[i].getQuantityOfSeats() +
                             "; rubber: " + addSpaceRubber(cars[i].getRubber(), cars));
@@ -128,11 +128,11 @@ public class TransportService {
         }
         return maxLengthTransmission;
     }
-    private static int maxLengthBodyType(Car[] cars) {
-        int maxLengthBodyType = cars[0].getBodyType().length();
+     private static int maxLengthBodyType(Car[] cars) {
+        int maxLengthBodyType = cars[0].getBodyType().getBodyType().length();
         for (int i = 0; i < cars.length; i++) {
-            if (maxLengthBodyType < cars[i].getBodyType().length()) {
-                maxLengthBodyType = cars[i].getBodyType().length();
+            if (maxLengthBodyType < cars[i].getBodyType().getBodyType().length()) {
+                maxLengthBodyType = cars[i].getBodyType().getBodyType().length();
             }
         }
         return maxLengthBodyType;
@@ -175,6 +175,16 @@ public class TransportService {
             }
         }
         return fullRubber + "...";
+    }
+
+    //Car with Enum
+    public static void printCarWithEnum (Car[] cars) {
+        for (int i = 0; i < cars.length; i++) {
+            System.out.println("brand: " + addSpaceBrand(cars[i].getBrand(), cars) +
+                    "; model: " + addSpaceModel(cars[i].getModel(), cars) +
+                    "; engineVolume: " + cars[i].getEngineVolume()+
+                    "; body type: " + addSpaceBodyType(cars[i].getBodyType().getBodyType(), cars));
+        }
     }
 
 
@@ -229,6 +239,65 @@ public class TransportService {
         }
         return fullCountry + "...";
     }
+
+    //Bus with Enum
+    public static void printBusWithEnum (Bus[] buses) {
+        for (int i = 0; i < buses.length; i++) {
+            System.out.println("brand: " + addSpaceBrand(buses[i].getBrand(), buses) +
+                    "; model: " + addSpaceModel(buses[i].getModel(), buses) +
+                    "; engineVolume: " + buses[i].getEngineVolume()+
+                    "; bus capacity: " + addSpaceBusCapacity(buses[i].getBusCapacity().toString(), buses));
+        }
+    }
+    private static int maxLengthBusCapacity (Bus[]buses) {
+        int maxLengthColor = buses[0].getBusCapacity().toString().length();
+        for (int i = 0; i < buses.length; i++) {
+            if (maxLengthColor < buses[i].getBusCapacity().toString().length()) {
+                maxLengthColor = buses[i].getBusCapacity().toString().length();
+            }
+        }
+        return maxLengthColor;
+    }
+    private static String addSpaceBusCapacity(String busCapacity, Bus[] buses) {
+            int max = maxLengthBusCapacity(buses);
+            String fullBusCapacity = busCapacity;
+            if (busCapacity.length() < max) {
+                for (int i = 0; i < (max - busCapacity.length()); i++) {
+                    fullBusCapacity = fullBusCapacity + ".";
+                }
+            }
+            return fullBusCapacity + "...";
+        }
+
+    //Truck with Enum
+    public static void printTruckWithEnum (Truck[] buses) {
+        for (int i = 0; i < buses.length; i++) {
+            System.out.println("brand: " + addSpaceBrand(buses[i].getBrand(), buses) +
+                    "; model: " + addSpaceModel(buses[i].getModel(), buses) +
+                    "; engineVolume: " + buses[i].getEngineVolume()+
+                    "; load capacity: " + addSpaceLoadCapacity(buses[i].getLoadCapacity().toString(), buses));
+        }
+    }
+    private static int maxLengthLoadCapacity (Truck []trucks) {
+        int maxLengthColor = trucks[0].getLoadCapacity().toString().length();
+        for (int i = 0; i < trucks.length; i++) {
+            if (maxLengthColor < trucks[i].getLoadCapacity().toString().length()) {
+                maxLengthColor = trucks[i].getLoadCapacity().toString().length();
+            }
+        }
+        return maxLengthColor;
+    }
+    private static String addSpaceLoadCapacity (String LoadCapacity, Truck[] trucks) {
+        int max = maxLengthLoadCapacity(trucks);
+        String fullTruckCapacity = LoadCapacity;
+        if (LoadCapacity.length() < max) {
+            for (int i = 0; i < (max - LoadCapacity.length()); i++) {
+                fullTruckCapacity = fullTruckCapacity + ".";
+            }
+        }
+        return fullTruckCapacity + "...";
+    }
+
 
     // Логические методы
     public static void changRubber(Car[] cars) {

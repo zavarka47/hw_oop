@@ -1,11 +1,11 @@
-package lesson_4.transport;
+package lesson_4.transport.Transport;
 
 public class Car extends transport implements competing {
     private String color;
     private int year;
     private String country;
     private String transmission;
-    private String bodyType;
+    private BodyType bodyType;
     private String registrationNo;
     private int quantityOfSeats;
     private String rubber;
@@ -55,23 +55,25 @@ public class Car extends transport implements competing {
 
 
 
-    public Car (String brand, String model, double engineVolume) {
+
+    public Car (String brand, String model, double engineVolume, BodyType bodyType) {
         super(brand, model, engineVolume);
+        this.bodyType = bodyType;
 
     }
     public Car (String brand, String model, double engineVolume, String color, int year, String country,
-         String transmission, String bodyType, String registrationNo, int quantityOfSeats, String rubber,
+         String transmission, BodyType bodyType, String registrationNo, int quantityOfSeats, String rubber,
                 Key key){
         super(brand, model, engineVolume);
         this.color = checkString(color);
         this.year = checkInt(year);
         this.country = checkString(country);
         this.transmission = checkString(transmission);
-        this.bodyType = checkString(bodyType);
         this.registrationNo = checkString(registrationNo);
         this.quantityOfSeats = checkInt(quantityOfSeats);
         this.rubber = checkString(rubber);
         this.key = key;
+        this.bodyType = bodyType;
     }
 
     // Методы Get
@@ -86,7 +88,7 @@ public class Car extends transport implements competing {
         return key;}
     public String getTransmission() {
         return transmission;}
-    public String getBodyType() {
+    public BodyType getBodyType() {
         return bodyType;}
     public String getRegistrationNo() {
         return registrationNo;}
@@ -133,4 +135,11 @@ public class Car extends transport implements competing {
     @Override
     public void maxSped() {
         System.out.print("Max Sped - 148 km/h; ");}
+
+    //Метод для Enum
+
+    @Override
+    public void printTyp() {
+        System.out.println("body type: " + bodyType);
+    }
 }

@@ -1,4 +1,7 @@
-package lesson_4.transport;
+package lesson_4.transport.Driver;
+
+import lesson_4.transport.Transport.competing;
+import lesson_4.transport.Transport.transport;
 
 public class Driver<T extends transport & competing> {
     private String fullName;
@@ -45,13 +48,10 @@ public class Driver<T extends transport & competing> {
 
     // Логические методы
     public static void starting() {
-        System.out.println("Move is starting");
-    }
+        System.out.println("Move is starting");}
     public static void stopping() {
-        System.out.println("Move is finishing");
-    }
+        System.out.println("Move is finishing");}
     public static void refueling(){ System.out.println("Refuel the car");}
-
     public void driving(T transport){
         System.out.println("Водитель " + getFullName() +
                 " управляет автомобилем " + transport.getBrand() + " " +transport.getModel() +
