@@ -1,6 +1,6 @@
 package lesson_4.transport.Transport;
 
-public class Truck extends transport implements competing{
+public class Truck extends Transport implements competing{
     private LoadCapacity loadCapacity;
     public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity ) {
         super(brand, model, engineVolume);
@@ -21,10 +21,14 @@ public class Truck extends transport implements competing{
     public void maxSped() {
         System.out.print("Max Sped - 112 km/h; ");}
 
-    // Метод для Emun
+    // Метод для урока Enum
 
     @Override
     public void printTyp() {
         System.out.println("load capacity: " + loadCapacity) ;
     }
+
+    // Метод для урока Exception
+
+
 }

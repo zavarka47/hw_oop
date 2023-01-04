@@ -1,6 +1,5 @@
-import lesson_4.transport.Driver.DriverB;
-import lesson_4.transport.Driver.DriverC;
-import lesson_4.transport.Driver.DriverD;
+import lesson_4.transport.Driver.*;
+import lesson_4.transport.Exceptions.LicenseExceptions;
 import lesson_4.transport.Transport.*;
 
 public class Main {
@@ -47,12 +46,12 @@ public class Main {
         trucks[2] = new Truck("MAZ", "5551", 11.2, LoadCapacity.N2);
         trucks[3] = new Truck("Volvo", "FMX", 10.8, LoadCapacity.N3);
 
-        TransportService.printCarWithEnum(cars);
+/*        TransportService.printCarWithEnum(cars);
         cars[0].printTyp();
         TransportService.printBusWithEnum(buses);
         buses[0].printTyp();
         TransportService.printTruckWithEnum(trucks);
-        trucks[0].printTyp();
+        trucks[0].printTyp();*/
 
 /*        System.out.println("Cars:");
         TransportService.printBaseInfoTransport(cars);
@@ -61,18 +60,31 @@ public class Main {
         System.out.println("Trucks:");
         TransportService.printBaseInfoTransport(trucks);*/
 
-        /*
+
         System.out.println();
-        DriverB <Car> driver1 = new DriverB<>("Чернов Артём Артёмович", true, 3);
-        DriverC <Truck> driver2 = new DriverC<>("Черных Ева Дмитриевна", true, 5);
-        DriverD <Bus> driver3 = new DriverD<>("Аникин Арсений Николаевич", true, 8);
-        driver1.driving(cars[0]);
+        DriverB <Car> driver1 = new DriverB<>("Чернов Артём Артёмович", null, 3);
+        DriverC <Truck> driver2 = new DriverC<>("Черных Ева Дмитриевна", "C", 5);
+        DriverD <Bus> driver3 = new DriverD<>("Аникин Арсений Николаевич", "D", 8);
+
+        checkDriver(driver1, driver2, driver3);
+        /*driver1.driving(cars[0]);
         driver3.driving(buses[1]);
-        driver2.driving(trucks[3]);*/
-
-
-
+        driver2.driving(trucks[3]);
+        */
 
 
     }
+    public static void checkDriver (Driver... drivers ){
+        for (Driver driver: drivers) {
+            try {
+                Driver.checkLicense(driver);
+            } catch (LicenseExceptions e){
+                System.out.println("Driver " + driver.getFullName() + " have a problem with license");
+                System.out.println(e.getMessage());
+            }
+
+        }
+    }
+
+
 }

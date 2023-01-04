@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class TransportService {
     // Transport
-    public static void printBaseInfoTransport (transport[] transports) {
+    public static void printBaseInfoTransport (Transport[] transports) {
         for (int i = 0; i < transports.length; i++) {
             System.out.print("brand: " + addSpaceBrand(transports[i].getBrand(), transports) +
                     "; model: " + addSpaceModel(transports[i].getModel(), transports) +
@@ -16,7 +16,7 @@ public class TransportService {
 
         }
     }
-    private static int maxLengthBrand(transport[] transports) {
+    private static int maxLengthBrand(Transport[] transports) {
         int maxLengthBrand = transports[0].getBrand().length();
         for (int i = 0; i < transports.length; i++) {
             if (maxLengthBrand < transports[i].getBrand().length()) {
@@ -25,7 +25,7 @@ public class TransportService {
         }
         return maxLengthBrand;
     }
-    private static int maxLengthModel(transport[] transports) {
+    private static int maxLengthModel(Transport[] transports) {
         int maxLengthModel = transports[0].getModel().length();
         for (int i = 0; i < transports.length; i++) {
             if (maxLengthModel < transports[i].getModel().length()) {
@@ -34,7 +34,7 @@ public class TransportService {
         }
         return maxLengthModel;
     }
-    private static String addSpaceBrand(String brand, transport[] transports) {
+    private static String addSpaceBrand(String brand, Transport[] transports) {
         int max = maxLengthBrand(transports);
         String fullBrand = brand;
         if (brand.length() < max) {
@@ -44,7 +44,7 @@ public class TransportService {
         }
         return fullBrand + "...";
     }
-    private static String addSpaceModel(String model, transport[] transports) {
+    private static String addSpaceModel(String model, Transport[] transports) {
         int max = maxLengthModel(transports);
         String fullModel = model;
         if (model.length() < max) {

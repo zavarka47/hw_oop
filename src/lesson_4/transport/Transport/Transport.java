@@ -1,17 +1,17 @@
 package lesson_4.transport.Transport;
 
-public abstract class transport implements competing {
+public abstract class Transport implements competing {
     private String brand;
     private String model;
     private double engineVolume;
 
-    transport(String brand, String model) {
+    Transport(String brand, String model) {
         this.brand = checkString(brand);
         this.model =  checkString(model);
         this.engineVolume = checkDouble(engineVolume);}
 
 
-    transport(String brand, String model, double engineVolume) {
+    Transport(String brand, String model, double engineVolume) {
         this.brand = checkString(brand);
         this.model =  checkString(model);
         this.engineVolume = checkDouble(engineVolume);}
@@ -74,6 +74,11 @@ public abstract class transport implements competing {
     public void maxSped() {
     }
 
-    // Методы для Enum
+    // Методы для урока Enum
     public abstract void printTyp();
+
+    // Методы для урока Exception
+    public void passDiagnostics(){
+
+    }
 }

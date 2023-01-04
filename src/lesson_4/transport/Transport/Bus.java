@@ -1,6 +1,6 @@
 package lesson_4.transport.Transport;
 
-public class Bus extends transport implements competing {
+public class Bus extends Transport implements competing {
 
     private String country;
     private String color;

@@ -1,6 +1,6 @@
 package lesson_4.transport.Transport;
 
-public class Car extends transport implements competing {
+public class Car extends Transport implements competing {
     private String color;
     private int year;
     private String country;
@@ -137,9 +137,14 @@ public class Car extends transport implements competing {
         System.out.print("Max Sped - 148 km/h; ");}
 
     //Метод для Enum
-
     @Override
     public void printTyp() {
         System.out.println("body type: " + bodyType);
+    }
+
+    // Метод для урока Exception
+    @Override
+    public void passDiagnostics() {
+        super.passDiagnostics();
     }
 }
