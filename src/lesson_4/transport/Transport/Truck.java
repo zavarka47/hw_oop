@@ -1,7 +1,11 @@
 package lesson_4.transport.Transport;
 
+import lesson_4.transport.Driver.Driver;
+import lesson_4.transport.Driver.Mechanic;
+
 public class Truck extends Transport implements competing{
     private LoadCapacity loadCapacity;
+
     public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity ) {
         super(brand, model, engineVolume);
         this.loadCapacity = loadCapacity;
@@ -28,7 +32,22 @@ public class Truck extends Transport implements competing{
         System.out.println("load capacity: " + loadCapacity) ;
     }
 
-    // Метод для урока Exception
+    // Метод для урока Collection
+    public void addDriverToTeam(Driver<Truck> driver) {
+        Driver = driver;
+    }
+
+    public void addMechanicToTeam(Mechanic<Truck> mechanic) {
+        if (mechanics.size() == 0){
+            mechanics.add(mechanic);
+        } else {
+            for (int i = 0; i < mechanics.size(); i++) {
+                if (!mechanics.contains(mechanic)) {
+                    mechanics.add(mechanic);
+                }
+            }
+        }
+    }
 
 
 }

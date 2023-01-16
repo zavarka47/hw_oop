@@ -1,6 +1,10 @@
 import lesson_4.transport.Driver.*;
 import lesson_4.transport.Exceptions.LicenseExceptions;
+import lesson_4.transport.Driver.Mechanic;
 import lesson_4.transport.Transport.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -71,6 +75,62 @@ public class Main {
         driver3.driving(buses[1]);
         driver2.driving(trucks[3]);
         */
+ // Collection
+        List<Transport> competingTransport = new ArrayList<>();
+        for (Car car : cars) {
+            competingTransport.add(car);}
+        for (Bus bus : buses) {
+            competingTransport.add(bus);}
+        for (Truck truck: trucks) {
+            competingTransport.add(truck);}
+
+
+        Mechanic<Car> mechanic1 = new Mechanic<>("Dany", "Service1");
+        Mechanic<Car> mechanic2 = new Mechanic<>("Anton", "Service2");
+        Mechanic<Truck> mechanic3 = new Mechanic<>("Vlad", "Service3");
+        Mechanic<Truck> mechanic4 = new Mechanic<>("Alex", "Service4");
+        Mechanic mechanic5 = new Mechanic<>("Piter", "Service5");
+        Mechanic mechanic6 = new Mechanic<>("Nicolis", "Service6");
+
+
+        System.out.println();
+        cars[0].addDriverToTeam(driver1);
+        cars[0].addMechanicToTeam(mechanic1);
+        cars[0].addMechanicToTeam(mechanic2);
+        cars[0].addMechanicToTeam(mechanic2);
+        cars[0].addMechanicToTeam(mechanic5);
+        cars[0].addMechanicToTeam(mechanic6);
+        cars[0].getTeam();
+        System.out.println();
+        trucks[3].addDriverToTeam(driver2);
+        trucks[3].addMechanicToTeam(mechanic3);
+        trucks[3].addMechanicToTeam(mechanic4);
+        trucks[3].addMechanicToTeam(mechanic4);
+        trucks[3].addMechanicToTeam(mechanic5);
+        trucks[3].addMechanicToTeam(mechanic6);
+        trucks[3].getTeam();
+
+        STO sto = new STO();
+        sto.addTransportToQueue(cars[0]);
+        sto.addTransportToQueue(trucks[3]);
+        sto.runTO();
+        sto.runTO();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

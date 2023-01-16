@@ -1,10 +1,20 @@
 package lesson_4.transport.Transport;
 
+import lesson_4.transport.Driver.Driver;
+import lesson_4.transport.Driver.Mechanic;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Transport implements competing {
     private String brand;
     private String model;
     private double engineVolume;
+    Driver Driver;
+    List<Mechanic> mechanics = new ArrayList<>();
 
+
+// Конструкторы
     Transport(String brand, String model) {
         this.brand = checkString(brand);
         this.model =  checkString(model);
@@ -17,7 +27,7 @@ public abstract class Transport implements competing {
         this.engineVolume = checkDouble(engineVolume);}
 
 
-    // Методы Get
+// Методы Get
     public String getBrand() {
         return brand;}
     public String getModel() {
@@ -25,45 +35,41 @@ public abstract class Transport implements competing {
     public double getEngineVolume() {
         return engineVolume;}
 
+    public List<Mechanic> getMechanics() {
+        return mechanics;}
 
     // Методы Set
     public void setEngineVolume(double engineVolume) {
-     this.engineVolume = engineVolume;
-    }
+     this.engineVolume = engineVolume;}
 
 
-    // Методы проверок
+// Метод toString
+    public String toString(){
+        return "brand: " + brand + "; model: " + model + "; engineVolume: " + engineVolume;}
+
+
+// Методы check
     protected static String checkString (String string) {
         if (string == null || string.isBlank() || string.isEmpty()) {
             string = "default";
         }
-        return string;
-    }
+        return string;}
     protected static double checkDouble (double i) {
         if (i <= 0 ) {
             i = 1.2;
             //throw new IllegalArgumentException("Не верно указана информация");
         }
-        return i;
-    }
+        return i;}
 
 
-    // Метод toString
-    public String toString(){
-        return "brand: " + brand + " model: " + model + "engineVolume: " + engineVolume;
-    }
-
-
-    // Методы движения
+// Методы действий
     public static void startMoving() {
-        System.out.println("Move is starting");
-    }
+        System.out.println("Move is starting");}
     public static void finishMoving() {
-        System.out.println("Move is finishing");
-    }
+        System.out.println("Move is finishing");}
 
 
-    // Методы implements
+// Методы implements
     @Override
     public void pitStop() {
     }
@@ -74,11 +80,24 @@ public abstract class Transport implements competing {
     public void maxSped() {
     }
 
-    // Методы для урока Enum
+
+// Методы для урока Enum
     public abstract void printTyp();
 
-    // Методы для урока Exception
-    public void passDiagnostics(){
 
+// Методы для урока Exception
+    public void passDiagnostics(){
     }
+
+
+    // Методы для урока Collection
+    public void getTeam() {
+        System.out.println(getBrand() + getModel() + "Team");
+        System.out.println("Driver - " + Driver.getFullName());
+        for (int i = 0; i < mechanics.size(); i++) {
+            System.out.println("Mechanic " + (i+1) + " - " + mechanics.get(i));
+        }
+    }
+
+
 }

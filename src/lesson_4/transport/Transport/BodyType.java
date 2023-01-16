@@ -12,12 +12,21 @@ public enum BodyType {
     MINIVAN("Minivan"),
     ROADSTER("Roadster") ;
     private String bodyType;
+
+
+// Конструктор
     BodyType(String bodyType) {
         this.bodyType = bodyType;
     }
+
+
+// Метод Get
     public String getBodyType(){
         return bodyType;
     }
+
+
+// Метод toString
     public String toString(){
         return bodyType;
     }

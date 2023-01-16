@@ -4,11 +4,12 @@ import lesson_4.transport.Exceptions.LicenseExceptions;
 import lesson_4.transport.Transport.competing;
 import lesson_4.transport.Transport.Transport;
 
-public class Driver<T extends Transport & competing> {
+public class Driver <T extends Transport & competing> {
     private String fullName;
     private String license;
     private int experience;
 
+// Конструктор
     public Driver(String fullName, String license, int experience) {
         this.fullName = checkString(fullName);
         this.license = license;
@@ -16,7 +17,7 @@ public class Driver<T extends Transport & competing> {
     }
 
 
-    // Методы Get
+// Методы Get
     public String getFullName() {
         return fullName;}
     public String getLicense(){
@@ -25,20 +26,21 @@ public class Driver<T extends Transport & competing> {
         return experience;}
 
 
-    // Методы Set
+// Методы Set
     public void setFullName(String fullName) {
         this.fullName = checkString(fullName);}
     public void setLicense(String license) {
         this.license = license;}
 
 
-    // Методы check
+// Методы check
     private static String checkString (String string){
         if (string == null || string.isEmpty() || string.isBlank()) {
             throw new IllegalArgumentException("Не верно указана информация");
         }
         return string;
     }
+
     private static int checkInt (int i) {
         if (i < 0) {
             throw new IllegalArgumentException("Не верно указана информация");
@@ -55,10 +57,7 @@ public class Driver<T extends Transport & competing> {
     }
 
 
-
-
-
-    // Логические методы
+// Методы действий
     public static void starting() {
         System.out.println("Move is starting");}
     public static void stopping() {

@@ -1,13 +1,14 @@
 package lesson_4.transport.Transport;
 
 public class Bus extends Transport implements competing {
-
     private String country;
     private String color;
     private int maxSped;
     private int year;
     private BusCapacity busCapacity;
 
+
+// Конструкторы
     public Bus(String brand, String model, double engineVolume, BusCapacity busCapacity) {
         super(brand, model, engineVolume);
         this.busCapacity = busCapacity;
@@ -22,7 +23,7 @@ public class Bus extends Transport implements competing {
     }
 
 
-    //Методы Get
+//Методы Get
     public String getCountry() {
         return country;}
     public String getColor() {
@@ -35,14 +36,15 @@ public class Bus extends Transport implements competing {
         return busCapacity;
     }
 
-    // Методы Set
+
+// Методы Set
     public void setColor(String color) {
         this.color = color;}
     public void setMaxSped(int maxSped) {
         this.maxSped = maxSped;}
 
 
-    // Методы check
+// Методы check
     private int checkInt (int i) {
         if (i <= 0) {
             i = 1;
@@ -51,7 +53,7 @@ public class Bus extends Transport implements competing {
         return i;}
 
 
-    // implements
+// Методы implements
     public void pitStop() {
         System.out.print("Pit-Stop time - 1 min 17 sec; ");}
     public void bestTimeCircle() {
@@ -60,10 +62,20 @@ public class Bus extends Transport implements competing {
     public void maxSped() {
         System.out.print("Max Sped - 121 km/h; ");}
 
-    // Метод для Enum
 
+// Метод для урока Enum
     @Override
     public void printTyp() {
         System.out.println("bus capacity: " + busCapacity);
     }
+
+
+// Методы для урока Collection
+
+
 }
+
+
+
+
+

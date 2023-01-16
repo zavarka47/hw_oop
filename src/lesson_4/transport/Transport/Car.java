@@ -1,5 +1,8 @@
 package lesson_4.transport.Transport;
 
+import lesson_4.transport.Driver.Driver;
+import lesson_4.transport.Driver.Mechanic;
+
 public class Car extends Transport implements competing {
     private String color;
     private int year;
@@ -10,6 +13,8 @@ public class Car extends Transport implements competing {
     private int quantityOfSeats;
     private String rubber;
     private Key key;
+
+
 
     public static class Key {
         String nameKey;
@@ -120,9 +125,8 @@ public class Car extends Transport implements competing {
         }
         return i;
     }
-    @Override
-    public String toString() {
-        return  "brand: " + getBrand() + "; model: " + getModel() + "; engineVolume: " + getEngineVolume() + "; color: " + color + "; year: " +  year + "; country: " + country;}
+
+
 
 
     // Методы implements
@@ -147,4 +151,23 @@ public class Car extends Transport implements competing {
     public void passDiagnostics() {
         super.passDiagnostics();
     }
+
+
+    // Методы для урока Collection
+    public void addDriverToTeam(Driver<Car> driver) {
+        Driver = driver;
+    }
+    public void addMechanicToTeam(Mechanic<Car> mechanic) {
+        if (mechanics.size() == 0){
+            mechanics.add(mechanic);
+        } else {
+            for (int i = 0; i < mechanics.size(); i++) {
+                if (!mechanics.contains(mechanic)) {
+                    mechanics.add(mechanic);
+                }
+            }
+        }
+    }
+
+
 }

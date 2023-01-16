@@ -6,9 +6,10 @@ public enum License {
     С	("Truck"),
     D	("Bus"),
     М	("Scooter");
-
     private String transportType;
 
+
+// Конструктор
     private License(String transportType) {
         this.transportType = transportType;
     }
@@ -16,6 +17,8 @@ public enum License {
         return transportType;
     }
 
+
+// Метод toString
     @Override
     public String toString() {
         return  transportType;
