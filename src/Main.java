@@ -3,8 +3,8 @@ import lesson_4.transport.Exceptions.LicenseExceptions;
 import lesson_4.transport.Driver.Mechanic;
 import lesson_4.transport.Transport.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -125,6 +125,13 @@ public class Main {
         sto.addTransportToQueue(trucks[3]);
         //sto.runTO();
         //sto.runTO();
+        Map<Transport, Mechanic[]> transportTeamMap = new HashMap<>();
+        transportTeamMap.put(cars[0], cars[0].getMechanics().toArray(new Mechanic[0]));
+        transportTeamMap.put(trucks[3], trucks[3].getMechanics().toArray(new Mechanic[0]));
+        System.out.println(Arrays.toString(transportTeamMap.get(cars[0])));
+        System.out.println(Arrays.toString(transportTeamMap.get(trucks[3])));
+
+
 
 
 
