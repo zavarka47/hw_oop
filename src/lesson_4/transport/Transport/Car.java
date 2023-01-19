@@ -155,19 +155,16 @@ public class Car extends Transport implements competing {
 
     // Методы для урока Collection
     public void addDriverToTeam(Driver<Car> driver) {
-        Driver = driver;
+        this.driver = driver;
     }
-    public void addMechanicToTeam(Mechanic<Car> mechanic) {
-        if (mechanics.size() == 0){
-            mechanics.add(mechanic);
-        } else {
-            for (int i = 0; i < mechanics.size(); i++) {
-                if (!mechanics.contains(mechanic)) {
-                    mechanics.add(mechanic);
-                }
+    public void addMechanicToTeam(Mechanic mechanic) {
+        if (mechanic.getClassList().contains(Car.class)){
+            if (!mechanics.contains(mechanic)) {
+                mechanics.add(mechanic);
             }
+        } else {
+            System.out.println("Mechanic " + mechanic.getFullName() + " doesn`t work with " + this.getClass().getSimpleName());
         }
     }
-
-
 }
+

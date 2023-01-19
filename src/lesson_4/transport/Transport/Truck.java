@@ -34,20 +34,16 @@ public class Truck extends Transport implements competing{
 
     // Метод для урока Collection
     public void addDriverToTeam(Driver<Truck> driver) {
-        Driver = driver;
+        this.driver = driver;
     }
 
-    public void addMechanicToTeam(Mechanic<Truck> mechanic) {
-        if (mechanics.size() == 0){
-            mechanics.add(mechanic);
-        } else {
-            for (int i = 0; i < mechanics.size(); i++) {
-                if (!mechanics.contains(mechanic)) {
-                    mechanics.add(mechanic);
-                }
+    public void addMechanicToTeam(Mechanic mechanic) {
+        if (mechanic.getClassList().contains(Truck.class))
+            if (!mechanics.contains(mechanic)) {
+                mechanics.add(mechanic);
+            } else {
+                System.out.println("Mechanic " + mechanic.getFullName() + " doesn`t work with " + this.getClass().getSimpleName());
             }
-        }
     }
-
 
 }

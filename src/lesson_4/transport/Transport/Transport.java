@@ -10,8 +10,8 @@ public abstract class Transport implements competing {
     private String brand;
     private String model;
     private double engineVolume;
-    Driver Driver;
-    List<Mechanic> mechanics = new ArrayList<>();
+    protected Driver driver;
+    protected List<Mechanic> mechanics = new ArrayList<>();
 
 
 // Конструкторы
@@ -93,11 +93,9 @@ public abstract class Transport implements competing {
     // Методы для урока Collection
     public void getTeam() {
         System.out.println(getBrand() + getModel() + "Team");
-        System.out.println("Driver - " + Driver.getFullName());
+        System.out.println("Driver - " + driver.getFullName());
         for (int i = 0; i < mechanics.size(); i++) {
             System.out.println("Mechanic " + (i+1) + " - " + mechanics.get(i));
         }
     }
-
-
 }

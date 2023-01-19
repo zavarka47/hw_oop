@@ -85,12 +85,21 @@ public class Main {
             competingTransport.add(truck);}
 
 
-        Mechanic<Car> mechanic1 = new Mechanic<>("Dany", "Service1");
-        Mechanic<Car> mechanic2 = new Mechanic<>("Anton", "Service2");
-        Mechanic<Truck> mechanic3 = new Mechanic<>("Vlad", "Service3");
-        Mechanic<Truck> mechanic4 = new Mechanic<>("Alex", "Service4");
+        Mechanic mechanic1 = new Mechanic<>("Dany", "Service1");
+        Mechanic mechanic2 = new Mechanic<>("Anton", "Service2");
+        Mechanic mechanic3 = new Mechanic<>("Vlad", "Service3");
+        Mechanic mechanic4 = new Mechanic<>("Alex", "Service4");
         Mechanic mechanic5 = new Mechanic<>("Piter", "Service5");
         Mechanic mechanic6 = new Mechanic<>("Nicolis", "Service6");
+
+        mechanic1.addTransportClass(Car.class);
+        mechanic2.addTransportClass(Car.class);
+        mechanic3.addTransportClass(Truck.class);
+        mechanic4.addTransportClass(Truck.class);
+        mechanic5.addTransportClass(Car.class);
+        mechanic5.addTransportClass(Truck.class);
+        mechanic6.addTransportClass(Car.class);
+        mechanic6.addTransportClass(Truck.class);
 
 
         System.out.println();
@@ -98,6 +107,7 @@ public class Main {
         cars[0].addMechanicToTeam(mechanic1);
         cars[0].addMechanicToTeam(mechanic2);
         cars[0].addMechanicToTeam(mechanic2);
+        cars[0].addMechanicToTeam(mechanic3);
         cars[0].addMechanicToTeam(mechanic5);
         cars[0].addMechanicToTeam(mechanic6);
         cars[0].getTeam();
@@ -113,10 +123,8 @@ public class Main {
         STO sto = new STO();
         sto.addTransportToQueue(cars[0]);
         sto.addTransportToQueue(trucks[3]);
-        sto.runTO();
-        sto.runTO();
-
-
+        //sto.runTO();
+        //sto.runTO();
 
 
 

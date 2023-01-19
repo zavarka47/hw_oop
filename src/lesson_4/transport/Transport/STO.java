@@ -1,7 +1,6 @@
 package lesson_4.transport.Transport;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class STO {
@@ -22,7 +21,7 @@ public class STO {
         Transport transport = transportQueue.poll();
         if (transport != null){
             System.out.print("Mechanic " + transport.getMechanics().get(0).getFullName() + " ");
-            transport.getMechanics().get(0).CarryOutMaintenance(transport);
+            transport.getMechanics().get(0).carryOutMaintenance(transport);
         }
     }
 }
