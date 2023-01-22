@@ -6,6 +6,7 @@ import lesson_4.transport.Transport.competing;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Mechanic <T extends Transport & competing> {
     private String fullName;
@@ -30,7 +31,7 @@ public class Mechanic <T extends Transport & competing> {
         return classList;
     }
 
-    // Методы Set
+// Методы Set
     public void setCompany(String company) {
         this.company = company;}
 
@@ -63,4 +64,19 @@ public class Mechanic <T extends Transport & competing> {
         classList.add(transportClass);
     }
 
+// Переопределенные методы
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mechanic<?> mechanic = (Mechanic<?>) o;
+        return Objects.equals(fullName, mechanic.fullName) && Objects.equals(company, mechanic.company) && Objects.equals(classList, mechanic.classList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, company, classList);
+    }
 }
