@@ -132,6 +132,23 @@ public class Main {
         System.out.println(Arrays.toString(transportTeamMap.get(trucks[3])));
 
 
+        Set<Mechanic> mechanicSet = new HashSet<>();
+        Mechanic[] mechanicCar = new Mechanic[cars[0].getMechanics().size()];
+        cars[0].getMechanics().toArray(mechanicCar);
+        for (int i = 0; i < mechanicCar.length; i++) {
+            mechanicSet.add(mechanicCar[i]);
+        }
+        Mechanic[] mechanicTruck = new Mechanic[trucks[3].getMechanics().size()];
+        trucks[3].getMechanics().toArray(mechanicTruck);
+        for (int i = 0; i < mechanicTruck.length; i++) {
+            mechanicSet.add(mechanicTruck[i]);
+        }
+
+
+        Iterator<Mechanic> mechanicIterator = mechanicSet.iterator();
+        while (mechanicIterator.hasNext()) {
+            System.out.println(mechanicIterator.next());
+        }
 
 
 
